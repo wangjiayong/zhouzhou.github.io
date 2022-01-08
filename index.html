@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>小蜜蜂来视察</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+        canvas{
+            border: 1px solid #ccc;
+            display: block;
+            margin: 0 auto;
+        }
+        audio{
+             display: none;
+         }
+    </style>
+</head>
+<body>
+    	<audio id="Jaudio" autoplay="autoplay" controls="controls" loop="loop" preload="auto">
+                <source src="mp3/yy.mp3" type="audio/mpeg">
+            </audio>
+<canvas width="800" height="600"></canvas>
+<script src="js/fb.js"></script>
+<script src="js/sky.js"></script>
+<script src="js/pipe.js"></script>
+<script src="js/land.js"></script>
+<script src="js/bird.js"></script>
+<script src="js/game.js"></script>
+<script>
+    window.onload = function () {
+    setTimeout(function() {
+      location.href = 'xin.html'
+    },60000)
+  }
+    function audioAutoPlay(id){
+        var audio = document.getElementById(id),
+            play = function(){
+            audio.play();
+            document.removeEventListener("touchstart",play, false);
+            };
+            audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {//微信
+            play();
+            }, false);
+            document.addEventListener('YixinJSBridgeReady', function() {//易信
+                    play();
+                }, false);
+            document.addEventListener("touchstart",play, false);
+        }
+        audioAutoPlay('Jaudio');
+var game=new FB.Game()
+    game.init()
+</script>
+</body>
+</html>
