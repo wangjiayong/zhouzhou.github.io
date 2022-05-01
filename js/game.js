@@ -94,7 +94,7 @@
     }
     Game.prototype.gameOver = function () {
         this.running=false
-        alert('小蜜蜂你把小鸟玩死了，～～')
+        alert('周周你把小鸟玩死了，～～')
         location.reload()
     }
     fb.Game = Game
